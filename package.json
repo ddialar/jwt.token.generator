@@ -1,0 +1,34 @@
+{
+  "name": "jwt.token.generator",
+  "version": "1.0.0",
+  "description": "A tiny JWT generator based on the current date and an id and a expiration date provided by the user.",
+  "main": "src/jwt.generator.js",
+  "scripts": {
+    "start": "babel-node src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://ddialar@bitbucket.org/ddialar/jwt.token.generator.git"
+  },
+  "keywords": [
+    "Javascript",
+    "JWT",
+    "Log4JS"
+  ],
+  "author": "Dailos Rafael Díaz Lara <ddialar@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/ddialar/jwt.token.generator#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "eslint": "^4.5.0"
+  },
+  "dependencies": {
+    "chalk": "^2.1.0",
+    "figlet": "^1.2.0",
+    "inquirer": "^3.2.2",
+    "jwt-simple": "^0.5.1",
+    "log4js": "^2.3.3",
+    "moment": "^2.18.1"
+  }
+}
