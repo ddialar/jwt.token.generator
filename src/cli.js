@@ -17,8 +17,9 @@ async function requestJwtData () {
             message: 'Define the expiration period with amount and unit (e.g.: 2 years):',
             validate: (value) => {
                 let validUnits = ['seconds', 'minutes', 'hours', 'days', 'weeks', 'months', 'years'];
+                let providedValues = value.split(' ');
                 try {
-                    if (value && validUnits.indexOf(value.split(' ')[1]) >= 0) {
+                    if (value && !isNaN(providedValues[0]) && validUnits.indexOf(providedValues[1]) >= 0) {
                         return true;
                     } else {
                         throw new Error();
