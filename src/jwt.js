@@ -1,7 +1,7 @@
 import jwt from 'jwt-simple';
 import moment from 'moment';
 
-const encodeJwt = (userId, expirationPeriod, encryptionKey) => {
+const encodeJwt = (userId, expirationPeriod, userRole, encryptionKey) => {
     let expirationPeriodParts = expirationPeriod.split(' ');
     let payload = {};
     let token = null;
@@ -9,6 +9,7 @@ const encodeJwt = (userId, expirationPeriod, encryptionKey) => {
     payload.sub = userId;
     payload.iat = moment().unix();
     payload.exp = moment().add(expirationPeriodParts[0], expirationPeriodParts[1]).unix();
+    payload.role = userRole;
 
     return jwt.encode(payload, encryptionKey);
 };
