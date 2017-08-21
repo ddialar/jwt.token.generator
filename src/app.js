@@ -19,7 +19,11 @@ async function main () {
         let jwtData = await cli.requestJwtData();
 
         if (jwtData) {
-            let token = jwt.encodeJwt(jwtData.userId, jwtData.expirationDate, jwtData.userRole, jwtData.encryptionKey);
+            let token;
+
+            jwtData.userRole = isNaN(parseInt(jwtData.userRole)) ? jwtData.userRole : parseInt(jwtData.userRole);
+
+            token = jwt.encodeJwt(jwtData.userId, jwtData.expirationDate, jwtData.userRole, jwtData.encryptionKey);
             logger.info(`Generated token:\n\n${token}\n\n`);
         } else {
             throw new Error('There was an error generating the JWT.');
