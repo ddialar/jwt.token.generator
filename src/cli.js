@@ -29,6 +29,22 @@ async function requestJwtData () {
             }
         },
         {
+            name: 'userRole',
+            type: 'input',
+            message: 'Define the user role (e.g.: 0, admin, etc.):',
+            validate: (value) => {
+                try {
+                    if (value) {
+                        return true;
+                    } else {
+                        throw new Error();
+                    }
+                } catch (error) {
+                    return 'Please, verify your input. The Role field cannot be an empty string.';
+                }
+            }
+        },
+        {
             name: 'encryptionKey',
             type: 'input',
             message: 'Define the encryption key:',
@@ -43,7 +59,7 @@ async function requestJwtData () {
                     return 'Please, verify your input. The encryption key cannot be empty.';
                 }
             }
-        },
+        }
     ];
 
     return await inquirer.prompt(questions);
